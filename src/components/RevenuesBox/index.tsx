@@ -14,7 +14,7 @@ export default function RevenuesBox(){
                         <h3>{item.title.toUpperCase()}</h3>
                         <p>Tempo de preparo: {item.tempo}</p>
                         <p>Nível de dificuldade: {item.level}</p>
-                        <a href=''>Ver receita</a>                       
+                        <a href='#'>Ver receita</a>                       
                     </div>
                 )
             })
