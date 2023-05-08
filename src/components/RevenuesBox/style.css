@@ -1,0 +1,42 @@
+.boxRevenues {
+    width: 100%;
+    height: auto;
+    padding: 30px 0 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center
+}
+
+.itemreceita {
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(248, 248, 248);
+    padding: 1rem;
+    border-radius: 20px;
+    justify-content: space-around;
+    scale: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.itemreceita img {
+    width: 100%;
+}
+
+.itemreceita a {
+    text-decoration: none;
+    background-color: coral;
+    padding: 10px;
+    width: max-content;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.itemreceita:hover {
+    transform: scale(1.1);
+}

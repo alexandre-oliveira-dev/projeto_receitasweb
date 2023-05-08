@@ -1,0 +1,31 @@
+.inputSearch {
+    width: 400px;
+    height: 60px;
+    border-radius: 30px;
+    border: 2px solid #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffffff83;
+    backdrop-filter: blur(10px);
+}
+
+.inputSearch input {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    
+}
+.inputSearch input::placeholder{
+    color: #fff;
+}

@@ -1,5 +1,21 @@
-.container-homepage{
+.container-homepage {
     width: 100%;
     min-height: 100vh;
-    background-color: red;
+}
+
+.container-section1 {
+    width: 100%;
+    height: calc(100vh - 70px);
+    position: relative;
+    background-image: url('../../assets/back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+}
+
+.container-section2 {
+    width: 100%;
+    min-height: 500px;
+
 }

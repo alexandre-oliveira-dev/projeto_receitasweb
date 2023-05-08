@@ -5,7 +5,7 @@ import Homepage from "../pages/Home";
 export default function RouterApp() {
     return (
         <Switch>
-            <Route path="/" component={Homepage}></Route>
+            <Route exact path="/" component={Homepage}></Route>
         </Switch>
     )
 }
