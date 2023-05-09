@@ -12,10 +12,10 @@ export default function Header() {
         className="menureceitas"
       >
         <div className="boxbtnsmenureceitas">
-            <a href="#">Doces</a>
-            <a href="#">salgados</a>
-            <a href="#">Massas</a>
-            <a href="#">Fitness</a>
+            <a href="/">Doces</a>
+            <a href="/">salgados</a>
+            <a href="/">Massas</a>
+            <a href="/">Fitness</a>
         </div>
       </div>
     );
