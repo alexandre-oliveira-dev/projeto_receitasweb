@@ -1,29 +1,40 @@
-import React from "react";
-import './style.css'
+import React, { useState } from "react";
+import "./style.css";
 
-export default function Header(){
+export default function Header() {
+  const [showmenureceitas, setShowmenureceitas] = useState<boolean>();
 
-    const navbarBtns = [
-        {id:1,title:'Início',link:'/', function:'',icon:'',},
-        {id:2,title:'Receitas',link:'', function:'',icon:'',},
-        {id:3,title:'Postar receitas',link:'', function:'',icon:'',}
-    ]
-
-    return(
-        <header className="containerHeader">
-            <div className="logo-area">logo</div>
-            <nav>
-               {navbarBtns.map(btn => {
-                return(
-                    <button type="button">{btn.title}</button>
-                )
-               })
-               }
-            </nav>
-            <div className="user-area">
-                <button>Entrar</button>
-                <button>Cadastre-se</button>
-            </div>
-        </header>
-    )
+  const MenuReceita = () => {
+    return (
+      <div
+        onMouseEnter={() => setShowmenureceitas(true)}
+        onMouseLeave={() => setShowmenureceitas(false)}
+        className="menureceitas"
+      >
+        <div className="boxbtnsmenureceitas">
+            <a href="#">Doces</a>
+            <a href="#">salgados</a>
+            <a href="#">Massas</a>
+            <a href="#">Fitness</a>
+        </div>
+      </div>
+    );
+  };
+  return (
+    <header className="containerHeader">
+      <div className="logo-area">logo</div>
+      <nav className="navbarbtns">
+        <button type="button">Início</button>
+        <button type="button" onMouseEnter={() => setShowmenureceitas(true)}>
+          Receitas
+        </button>
+        {showmenureceitas && <MenuReceita></MenuReceita>}
+        <button type="button">Postar receitas</button>
+      </nav>
+      <div className="user-area">
+        <button>Entrar</button>
+        <button>Cadastre-se</button>
+      </div>
+    </header>
+  );
 }

@@ -6,3 +6,34 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+.navbarbtns{
+    display: flex;
+    gap: 10px;
+
+}
+.navbarbtns button{
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+    
+}
+
+.menureceitas{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    background-color: rgb(235, 235, 235);
+    margin-top: 30px;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxbtnsmenureceitas{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

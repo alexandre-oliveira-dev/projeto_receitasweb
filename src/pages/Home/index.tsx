@@ -4,6 +4,8 @@ import Header from "../../components/Header";
 import InputSearchHome from "../../components/InputSearchHome";
 import Title from "../../components/Titles";
 import RevenuesBox from "../../components/RevenuesBox";
+import RevenueWeek from "../../components/RevenueWeek";
+import Footer from "../../components/Footer";
 
 const Homepage = () => {
   return (
@@ -25,9 +27,19 @@ const Homepage = () => {
       </section>
       <section className="container-section2">
         <Title key={2} level={"600"} color="coral" size={"30px"} title="Melhores Receitas"></Title>
-
         <RevenuesBox></RevenuesBox>
       </section>
+      <section className="container-section3">
+      <Title
+          key={3}
+          level={"600"}
+          color="coral"
+          size={"30px"}
+          title="Receita da Semana"
+        ></Title>
+        <RevenueWeek></RevenueWeek>
+      </section>
+      <Footer></Footer>
     </div>
   );
 };

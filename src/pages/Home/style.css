@@ -17,5 +17,12 @@
 .container-section2 {
     width: 100%;
     min-height: 500px;
+    padding-bottom: 30px;
+}
+
+.container-section3 {
+    width: 100%;
+    min-height: 500px;
+    padding-bottom: 30px;
 
 }

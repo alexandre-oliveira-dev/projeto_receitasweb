@@ -13,7 +13,7 @@ type TitleFypes = {
 export default function Title({color,level,size,title,shadow,width,margin}:TitleFypes) {
   return <div style={{
     width:'100%',
-    height:"50px",
+    height:"80px",
     display:"flex",
     justifyContent:'center',
     alignItems:"center",
