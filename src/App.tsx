@@ -5,9 +5,9 @@ import RouterApp from "./services/routes";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <RouterApp></RouterApp>
-      </BrowserRouter>
+        <BrowserRouter>
+          <RouterApp></RouterApp>
+        </BrowserRouter>
     </div>
   );
 }
