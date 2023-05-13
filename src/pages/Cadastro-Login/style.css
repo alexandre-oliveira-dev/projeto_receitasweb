@@ -57,31 +57,15 @@
 }
 
 .formanimation {
-    animation: opacity 0.5s ease;
-}
-
-@keyframes opacity {
-    0% {
-        transform: rotateY(0deg);
-
-    }
-
-    100% {
-        transform: rotateY(180deg);
-    }
+    animation: opacity 0.5s ease alternate ;
 }
 
 .formanimation2 {
-    animation: opacity2 0.5s ease;
+    animation: opacity 0.5s ease alternate-reverse;
 }
 
-@keyframes opacity2 {
-    0% {
-        transform: rotateY(180deg);
-
-    }
-
-    100% {
-        transform: rotateY(0deg);
+@keyframes opacity {
+    to {
+        transform: rotateY(1turn);
     }
 }

@@ -15,6 +15,9 @@
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 100px;
+    padding: 2rem;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
 }
 .inputformrenevues ,.inputformringredientes{
     width: 250px;
@@ -41,4 +44,53 @@
     padding: 10px;
     border-radius: 10px;
     color: #fff;
+}
+
+.box-input-file{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.box-input-file input{
+    height: 100%;
+    width: 100%;
+}
+.input-false{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    gap: 10px;
+}
+
+.box-list-files{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#btnpost{
+    width: 150px;
+    height: 35px;
+    background-color: coral;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+#btnpost:hover{
+    background-color: rgb(190, 96, 61);
 }
