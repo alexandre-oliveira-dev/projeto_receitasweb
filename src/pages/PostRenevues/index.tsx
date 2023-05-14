@@ -87,8 +87,10 @@ export default function PostRenevues() {
     }
 
     const banners: [""] = JSON.parse(localStorage.getItem("@files") as any) || [];
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
     let data = {
+      id: Math.floor(Math.random() * characters.length),
       user: datauser?.uid,
       created_at: new Date().getDate(),
       title,
@@ -130,6 +132,7 @@ export default function PostRenevues() {
       if(!newArrayFiles.length){
          document.getElementById('files')?.setAttribute('type','text')
          document.getElementById('files')?.setAttribute('type','file')  
+         localStorage.removeItem("@files");
         return;
       }
 

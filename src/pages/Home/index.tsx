@@ -35,7 +35,7 @@ const Homepage = () => {
           level={"600"}
           color="coral"
           size={"30px"}
-          title="Receita da Semana"
+          title="Em Destaque"
         ></Title>
         <RevenueWeek></RevenueWeek>
       </section>

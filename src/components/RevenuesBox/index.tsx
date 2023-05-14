@@ -2,7 +2,7 @@ import React,{useEffect,useState} from "react";
 import "./style.css";
 import firebase from "../../services/firebase";
 
-type PromisseRenevues = {
+export type PromisseRenevues = {
   title:string,
   nivel:string,
   categoria:[string],
@@ -10,6 +10,7 @@ type PromisseRenevues = {
   banners:[string],
   dataingredientes:string,
   modo:string
+  tempoPreparo:string
 }
 
 export default function RevenuesBox() {
@@ -20,7 +21,6 @@ export default function RevenuesBox() {
     async function loadReceitas(){
      const response = await firebase.firestore().collection('receitas').get()
      setData(response.docs.map(item => item.data()) as any)
-     console.log(response.docs.map(item => item.data()))
     }
     loadReceitas()
   },[])
@@ -33,7 +33,7 @@ export default function RevenuesBox() {
           <div key={index} className="itemreceita">
             <img src={item.banners[0]} alt=""></img>
             <h3>{item.title.toUpperCase()}</h3>
-            <p>Tempo de preparo: {''}</p>
+            <p>Tempo de preparo: {item.tempoPreparo}</p>
             <p>Nível de dificuldade: {item.nivel}</p>
             <a href="#">Ver receita</a>
           </div>

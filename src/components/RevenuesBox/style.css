@@ -10,7 +10,7 @@
 
 .itemreceita {
     width: 300px;
-    height: auto;
+    max-height: 450px;
     display: flex;
     flex-direction: column;
     gap: 10px;

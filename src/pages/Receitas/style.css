@@ -1,0 +1,12 @@
+.container-receitas {
+    width: 100%;
+}
+
+.container-section-recitas {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
