@@ -17,7 +17,10 @@
     border: 0;
     color: #fff;
     font-size: 16px;
-    
+    transition: 0.3s ease;
+}
+.navbarbtns button:hover{
+    text-shadow: 5px 5px 10px black;
 }
 
 .menureceitas{
@@ -28,11 +31,21 @@
     margin-top: 30px;
     left: 0;
     z-index: 10;
-    display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 30px;
     padding-top: 30px;
+    box-shadow: 5px 5px 25px black;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease;
+}
+.animationmenu{
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+
 }
 .boxbtnsmenureceitas{
     display: flex;

@@ -24,14 +24,10 @@ export default function PostRenevues() {
   const [load, setLoad] = useState<boolean>(false);
   const [tempo, setTempo] = useState<string>("");
 
-
-
   useEffect(() => {
     const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || {};
     setDatauser(userdata?.user);
   }, []);
-
-
 
   async function FilesRegister(files: any) {
     if (!datauser) {
@@ -44,8 +40,8 @@ export default function PostRenevues() {
     for (let i = 0; i < arquives?.length; i++) {
       arrayfiles.push(arquives[i]);
     }
-    if(arrayfiles.length > 2){
-      toast.info('Maximo de 2 fotos!')
+    if (arrayfiles.length > 2) {
+      toast.info("Maximo de 2 fotos!");
       return;
     }
     setDatafiles(arrayfiles);
@@ -87,7 +83,7 @@ export default function PostRenevues() {
     }
 
     const banners: [""] = JSON.parse(localStorage.getItem("@files") as any) || [];
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     let data = {
       id: Math.floor(Math.random() * characters.length),
@@ -103,7 +99,6 @@ export default function PostRenevues() {
       avaliacoes: 0,
       tempoPreparo: tempo,
     };
-    
 
     await firebase
       .firestore()
@@ -119,29 +114,35 @@ export default function PostRenevues() {
       });
   }
 
-  async function handleDeletefile(name:string,index:number){
-    await firebase.storage().ref(`/files/${datauser?.uid}`).child(`${datauser?.uid}-${name}`).delete()
-    .then(()=>{
-      const newArrayFiles:[''] = datafiles?.filter((item:InputFilesType) => item.name !== name)
-      setDatafiles(newArrayFiles)
-      const localstoragedata:[''] = JSON.parse(localStorage.getItem("@files") as any) || {};
-      const filterLocalstorage = localstoragedata.filter((item:any,ind:number) => ind !== index )
+  async function handleDeletefile(name: string, index: number) {
+    await firebase
+      .storage()
+      .ref(`/files/${datauser?.uid}`)
+      .child(`${datauser?.uid}-${name}`)
+      .delete()
+      .then(() => {
+        const newArrayFiles: [""] = datafiles?.filter((item: InputFilesType) => item.name !== name);
+        setDatafiles(newArrayFiles);
+        const localstoragedata: [""] = JSON.parse(localStorage.getItem("@files") as any) || {};
+        const filterLocalstorage = localstoragedata.filter(
+          (item: any, ind: number) => ind !== index
+        );
 
-      localStorage.setItem('@files',JSON.stringify(filterLocalstorage))
+        localStorage.setItem("@files", JSON.stringify(filterLocalstorage));
 
-      if(!newArrayFiles.length){
-         document.getElementById('files')?.setAttribute('type','text')
-         document.getElementById('files')?.setAttribute('type','file')  
-         localStorage.removeItem("@files");
-        return;
-      }
+        if (!newArrayFiles.length) {
+          document.getElementById("files")?.setAttribute("type", "text");
+          document.getElementById("files")?.setAttribute("type", "file");
+          localStorage.removeItem("@files");
+          return;
+        }
 
-      toast.success('Foto removida!')
-    })
-    .catch((err)=>{
-      console.log(err)
-      toast.error('ops, tente novamente mais tarde!')
-    })
+        toast.success("Foto removida!");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("ops, tente novamente mais tarde!");
+      });
   }
 
   return (
@@ -172,10 +173,19 @@ export default function PostRenevues() {
               value={ingredientes}
             />
             <button
+              style={{
+                background: "coral",
+                color: "#fff",
+                border: "0",
+                borderRadius: "5px",
+                width: "30px",
+                height: "30px",
+                margin: "5px 5px 0 0",
+              }}
               type="button"
               onClick={() => {
                 if (!ingredientes) {
-                  toast.info('Adicione os ingredientes')
+                  toast.info("Adicione os ingredientes");
                   return;
                 }
                 setDatangrediente([...dataingredientes, ingredientes]);
@@ -186,18 +196,18 @@ export default function PostRenevues() {
             </button>
           </div>
           <select onChange={(e) => setNivel(e.target.value)} className="inputformrenevues">
-            <option style={{fontWeight:"600"}}>Nivel de dificuldade</option>
+            <option style={{ fontWeight: "600" }}>Nivel de dificuldade</option>
             <option value={"facil"}>facil</option>
             <option value={"medio"}>medio</option>
             <option value={"dificil"}>dificil</option>
           </select>
           <select onChange={(e) => setTipo(e.target.value)} className="inputformrenevues">
-            <option style={{fontWeight:"600"}}>Tipo</option>
+            <option style={{ fontWeight: "600" }}>Tipo</option>
             <option value={"doce"}>doce</option>
             <option value={"salgado"}>salgado</option>
           </select>
           <select onChange={(e) => setCategoria(e.target.value)} className="inputformrenevues">
-            <option style={{fontWeight:"600"}}>Categoria</option>
+            <option style={{ fontWeight: "600" }}>Categoria</option>
             <option value={"massas"}>massas</option>
             <option value={"carnes"}>carnes</option>
             <option value={"bebidas"}>bebidas</option>
@@ -256,15 +266,30 @@ export default function PostRenevues() {
                     background: "coral",
                     color: "#fff",
                     width: "max-content",
+                    borderRadius:"10px"
                   }}
                   key={index}
                 >
-                  {item.name} <button type="button" onClick={()=>handleDeletefile(item.name,index)}>X</button>
+                  {item.name}{" "}
+                  <button
+                    type="button"
+                    style={{
+                      background: "coral",
+                      color: "#fff",
+                      border: "0",
+                      borderRadius: "5px",
+                    }}
+                    onClick={() => handleDeletefile(item.name, index)}
+                  >
+                    X
+                  </button>
                 </span>
               );
             })}
           </div>
-          <button id="btnpost" type="submit">Postar</button>
+          <button id="btnpost" type="submit">
+            Postar
+          </button>
         </div>
       </form>
       <Footer></Footer>

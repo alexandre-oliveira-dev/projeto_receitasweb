@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import firebase from '../../services/firebase'
-
-
+import firebase from "../../services/firebase";
 
 export default function Header() {
   const [showmenureceitas, setShowmenureceitas] = useState<boolean>();
@@ -11,14 +9,16 @@ export default function Header() {
   useEffect(() => {
     const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || {};
     setDatauser(userdata?.user);
-
   }, []);
 
   const MenuReceita = () => {
     return (
       <div
-        onMouseEnter={() => setShowmenureceitas(true)}
-        onMouseLeave={() => setShowmenureceitas(false)}
+        onMouseEnter={() => {
+          document.querySelector(".menureceitas")?.classList.add("animationmenu")}}
+        onMouseLeave={() => {
+          document.querySelector(".menureceitas")?.classList.remove("animationmenu");
+        }}
         className="menureceitas"
       >
         <div className="boxbtnsmenureceitas">
@@ -55,10 +55,15 @@ export default function Header() {
         <button type="button" onClick={() => (window.location.href = "/")}>
           Início
         </button>
-        <button type="button" onMouseEnter={() => setShowmenureceitas(true)}>
+        <button
+          type="button"
+          onMouseEnter={() => {
+            document.querySelector(".menureceitas")?.classList.add("animationmenu");
+          }}
+          >
           Receitas
         </button>
-        {showmenureceitas && <MenuReceita></MenuReceita>}
+        {<MenuReceita></MenuReceita>}
         <button type="button" onClick={() => (window.location.href = "/post")}>
           Postar receitas
         </button>
@@ -71,14 +76,21 @@ export default function Header() {
             <button onClick={() => (window.location.href = "/cadastro")}>Cadastre-se</button>
           </>
         ) : (
-          <div><p>{datauser.email}</p>
-          <button onClick={async()=>{
-            await firebase.auth().signOut()
-            .then(()=>{
-              localStorage.removeItem('@receitasweb')
-              window.location.reload();
-            })
-          }}>sair</button>
+          <div>
+            <p>{datauser.email}</p>
+            <button
+              onClick={async () => {
+                await firebase
+                  .auth()
+                  .signOut()
+                  .then(() => {
+                    localStorage.removeItem("@receitasweb");
+                    window.location.reload();
+                  });
+              }}
+            >
+              sair
+            </button>
           </div>
         )}
       </div>

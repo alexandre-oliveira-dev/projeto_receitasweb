@@ -7,10 +7,11 @@ type TitleFypes = {
     size: string;
     shadow?:boolean;
     width?: string,
-    margin?:string
+    margin?:string,
+    align?:'start'|'center'|'left'|'right'
 };
 
-export default function Title({color,level,size,title,shadow,width,margin}:TitleFypes) {
+export default function Title({color,level,size,title,shadow,width,margin,align}:TitleFypes) {
   return <div style={{
     width:'100%',
     height:"80px",
@@ -25,7 +26,7 @@ export default function Title({color,level,size,title,shadow,width,margin}:Title
         color:color,
         fontSize:size,
         textShadow: shadow ? '5px 5px 10px black' : 'none',
-        textAlign:"center"
+        textAlign:align
     }}>{title}</h1>
   </div>;
 }

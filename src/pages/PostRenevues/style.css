@@ -1,5 +1,7 @@
 .container-post-renevues{
     width: 100%;
+    background-color: rgb(244, 244, 244);
+
 }
 
 .container-form-post{
@@ -16,11 +18,11 @@
     flex-wrap: wrap;
     margin-top: 100px;
     padding: 2rem;
-    background-color: rgb(244, 244, 244);
+    background-color:#fff;
     border-radius: 10px;
 }
 .inputformrenevues ,.inputformringredientes{
-    width: 250px;
+    width: auto;
     height: 40px;
     border-radius: 5px;
     border: solid silver 1.5px;

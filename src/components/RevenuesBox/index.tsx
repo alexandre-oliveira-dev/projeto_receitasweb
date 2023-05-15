@@ -3,12 +3,13 @@ import "./style.css";
 import firebase from "../../services/firebase";
 
 export type PromisseRenevues = {
+  id:string,
   title:string,
   nivel:string,
   categoria:[string],
   tipo:string,
   banners:[string],
-  dataingredientes:string,
+  dataingredientes:[string],
   modo:string
   tempoPreparo:string
 }
@@ -30,12 +31,12 @@ export default function RevenuesBox() {
     <div className="boxRevenues">
       {data.map((item:PromisseRenevues,index:number) => {
         return (
-          <div key={index} className="itemreceita">
+          <div key={index} className="itemreceita" onClick={()=>window.location.href=`/receita/${item.id}`}>
             <img src={item.banners[0]} alt=""></img>
             <h3>{item.title.toUpperCase()}</h3>
             <p>Tempo de preparo: {item.tempoPreparo}</p>
             <p>Nível de dificuldade: {item.nivel}</p>
-            <a href="#">Ver receita</a>
+            <a href={`/receita/${item.id}`}>Ver receita</a>
           </div>
         );
       })}
