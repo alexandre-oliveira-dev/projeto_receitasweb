@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import firebase from "../../services/firebase";
 
 type RegisterCredencials = {
@@ -25,11 +26,10 @@ export async function Login(email: string, password: string) {
     .signInWithEmailAndPassword(email, password)
     .then((value) => {
       localStorage.setItem("@receitasweb", JSON.stringify(value));
-
       window.location.href='/'
-
     })
     .catch((err)=>{
+      toast.error('senha / email incorretos ou nao cadastrados!')
         console.log(err)
     })
 

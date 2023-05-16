@@ -67,7 +67,7 @@ export default function Header() {
         <button type="button" onClick={() => (window.location.href = "/post")}>
           Postar receitas
         </button>
-        <button type="button">Minhas receitas</button>
+        <button onClick={() => (window.location.href = "/minhas_receitas")} type="button">Minhas receitas</button>
       </nav>
       <div className="user-area">
         {!datauser ? (

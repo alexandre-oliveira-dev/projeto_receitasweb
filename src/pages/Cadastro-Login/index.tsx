@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./style.css";
 import Title from "../../components/Titles";
 import {Register,Login} from "./FunctionsContext";
+import { toast } from "react-toastify";
 
 type RegisterCredencials ={
   name:string,
@@ -20,22 +21,26 @@ export default function Cadastro() {
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
     if (password !== repetPassword) {
+      toast.error('Senhas não conferem!')
       return;
     }
     await Register({ name, email, password })
       .then(() => {
-        alert("cadastro efetuado com sucesso!");
+        toast.success("cadastro efetuado com sucesso!");
+        setEmail('')
+        setPassword('')
+        setRepetPassword('')
+        setFormtype(true)
       })
       .catch((err: any) => {
+        toast.error("ops, tente novamente mais tarde!");
         console.log(err);
       });
   }
 
   async function handleLogin(e: React.FormEvent){
     e.preventDefault();
-
     await Login(email,password)
-   
   }
 
   return (

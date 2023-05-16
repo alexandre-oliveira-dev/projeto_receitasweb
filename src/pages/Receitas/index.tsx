@@ -10,12 +10,18 @@ import Title from "../../components/Titles";
 
 export default function Receitas() {
   const [data, setData] = useState<any>([]);
+  const [datalenght, setDatalenght] = useState<number>(0);
   const { nomereceita }: any = useParams();
 
   useEffect(() => {
     async function loadReceitas() {
       const response = await firebase.firestore().collection("receitas").get();
       const lista = response.docs.map((item) => item.data());
+      setDatalenght(
+        lista.filter(function (item) {
+          return item.title.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
+        }).length
+      );
       setData(
         lista.filter(function (item) {
           return item.title.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
@@ -25,26 +31,42 @@ export default function Receitas() {
     loadReceitas();
   }, [nomereceita]);
 
-  console.log(data)
   return (
     <div className="container-receitas">
       <Header></Header>
       <section className="container-section-recitas">
-        {!data.lenght ? (
-         <>
-          <Title title="Receita não encontrada! 😕" color="coral" level="600" size="30px"></Title> 
-          <Title title="Você pode gostar:" color="coral" level="600" size="20px" margin="0 0 -60px 0"></Title> 
-          <RevenuesBox></RevenuesBox>
-         </>
+        {data?.lenght < 1 ? (
+          <>
+            <Title title="Receita não encontrada! 😕" color="coral" level="600" size="30px"></Title>
+            <Title
+              title="Você pode gostar:"
+              color="coral"
+              level="600"
+              size="20px"
+              margin="0 0 -60px 0"
+            ></Title>
+            <RevenuesBox></RevenuesBox>
+          </>
         ) : (
           data.map((item: PromisseRenevues, index: number) => {
             return (
-              <div key={index} className="itemreceita">
-                <img src={item.banners[0]} alt=""></img>
-                <h3>{item.title.toUpperCase()}</h3>
-                <p>Tempo de preparo: {item.tempoPreparo}</p>
-                <p>Nível de dificuldade: {item.nivel}</p>
-                <a href="#">Ver receita</a>
+              <div style={{ width: "100%" }}>
+                <Title
+                  title={`${datalenght} Receita(s) encontradas, buscando por: "${nomereceita}" `}
+                  color="coral"
+                  level="400"
+                  size="30px"
+                  align="center"
+                  width="100%"
+                ></Title>
+
+                <div key={index} className="itemreceita">
+                  <img src={item.banners[0]} alt=""  onClick={()=> window.location.href=`/receita/${item.id}`} ></img>
+                  <h3>{item.title.toUpperCase()}</h3>
+                  <p>Tempo de preparo: {item.tempoPreparo}</p>
+                  <p>Nível de dificuldade: {item.nivel}</p>
+                  <a href={`/receita/${item.id}`}>Ver receita</a>
+                </div>
               </div>
             );
           })

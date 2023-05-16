@@ -25,7 +25,7 @@ export default function PostRenevues() {
   const [tempo, setTempo] = useState<string>("");
 
   useEffect(() => {
-    const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || {};
+    const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || '';
     setDatauser(userdata?.user);
   }, []);
 
@@ -75,6 +75,7 @@ export default function PostRenevues() {
   async function handleformrenevues(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!datauser) {
+      toast.info('Faça login para postar receitas!')
       return;
     }
     if (!title || !modo || !dataingredientes || !tipo || !categoria || !nivel) {
@@ -108,6 +109,7 @@ export default function PostRenevues() {
       .then(() => {
         toast.success("Receita criada com sucesso!");
         localStorage.removeItem("@files");
+        window.location.reload();
       })
       .catch(() => {
         toast.error("Ops, tente novamente mais tarde!");
