@@ -23,27 +23,27 @@ export default function Header() {
       >
         <div className="boxbtnsmenureceitas">
           <strong>Geral</strong>
-          <a href="/">Doces</a>
-          <a href="/">salgados</a>
-          <a href="/">Massas</a>
-          <a href="/">Fitness</a>
+          <a href={`/receitas/${'doce'}`}>Doces</a>
+          <a href={`/receitas/${'salgados'}`}>salgados</a>
+          <a href={`/receitas/${'massas'}`}>Massas</a>
+          <a href={`/receitas/${'fitness'}`}>Fitness</a>
         </div>
         <div className="boxbtnsmenureceitas">
           <strong>Carnes</strong>
-          <a href="/">Bovino</a>
-          <a href="/">Aves</a>
-          <a href="/">Peixes</a>
+          <a href={`/receitas/${'bovino'}`}>Bovino</a>
+          <a href={`/receitas/${'aves'}`}>Aves</a>
+          <a href={`/receitas/${'peixes'}`}>Peixes</a>
         </div>
         <div className="boxbtnsmenureceitas">
           <strong>Sobremesas</strong>
-          <a href="/">Bolos</a>
-          <a href="/">Tortas</a>
+          <a href={`/receitas/${'bolos'}`}>Bolos</a>
+          <a href={`/receitas/${'tortas'}`}>Tortas</a>
         </div>
         <div className="boxbtnsmenureceitas">
           <strong>Bebidas</strong>
-          <a href="/">Drinks</a>
-          <a href="/">Milkshakes</a>
-          <a href="/">Sucos</a>
+          <a href={`/receitas/${'drinks'}`}>Drinks</a>
+          <a href={`/receitas/${'milkshakes'}`}>Milkshakes</a>
+          <a href={`/receitas/${'sucos'}`}>Sucos</a>
         </div>
       </div>
     );
