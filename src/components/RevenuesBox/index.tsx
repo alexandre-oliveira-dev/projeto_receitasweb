@@ -21,7 +21,7 @@ export default function RevenuesBox() {
   useEffect(()=>{
     async function loadReceitas(){
      const response = await firebase.firestore().collection('receitas').get()
-     setData(response.docs.map(item => item.data()) as any)
+     setData(response.docs.map(item => item.data()).slice(0,8) as any)
     }
     loadReceitas()
   },[])

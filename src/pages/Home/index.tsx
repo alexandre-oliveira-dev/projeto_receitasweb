@@ -17,10 +17,11 @@ const Homepage = () => {
           level={"400"}
           color="#fff"
           size={"40px"}
-          width="400px"
+          width="500px"
           shadow={true}
           title="Milhares de Receitas na palma da sua mão!"
           margin="200px 0 0 0"
+          align="center"
         ></Title>
 
         <InputSearchHome></InputSearchHome>

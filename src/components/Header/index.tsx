@@ -24,7 +24,7 @@ export default function Header() {
         <div className="boxbtnsmenureceitas">
           <strong>Geral</strong>
           <a href={`/receitas/${'doce'}`}>Doces</a>
-          <a href={`/receitas/${'salgados'}`}>salgados</a>
+          <a href={`/receitas/${'salgado'}`}>salgados</a>
           <a href={`/receitas/${'massas'}`}>Massas</a>
           <a href={`/receitas/${'fitness'}`}>Fitness</a>
         </div>

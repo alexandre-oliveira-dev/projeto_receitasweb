@@ -30,7 +30,7 @@ export default function Receita() {
         {data.map((item: PromisseRenevues) => {
           return (
             <div key={item?.id} className="box-info-recita">
-              <>
+              <div style={{display:"flex",gap:"20px"}}>
                 <div className="box-img-receita">
                   {!image ? (
                     <img id="indexImg" src={item.banners.map((i) => i)[0]} alt=""></img>
@@ -54,6 +54,7 @@ export default function Receita() {
                       className="imgSelect"
                     ></img>
                   </div>
+                </div>
                   <div style={{ width: "50%" }}>
                     <Title
                       title={item.title.toUpperCase()}
@@ -80,7 +81,7 @@ export default function Receita() {
 
                         {item.dataingredientes.map((item, index) => {
                           return (
-                            <p style={{ color: "coral" }}>
+                            <p style={{ color: "coral",marginTop:"10px" }}>
                               {index + 1}° {item}
                             </p>
                           );
@@ -94,8 +95,7 @@ export default function Receita() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </>
+              </div>
               <Title align='start' width='100%' title="Receitas recomendadas:" color="coral" level="600" size="25px" ></Title> 
               <RevenuesBox></RevenuesBox>
             </div>
