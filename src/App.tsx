@@ -11,7 +11,6 @@ function App() {
     localStorage.removeItem("@files")
    }, 600000);
   },[])
-
   return (
     <div className="App">
         <BrowserRouter>

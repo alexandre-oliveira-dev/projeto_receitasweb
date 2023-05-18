@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import firebase from "../../services/firebase";
+import { FiMenu } from "react-icons/fi";
+import MenuMobile from "../MenuMobile";
 
 export default function Header() {
-  const [showmenureceitas, setShowmenureceitas] = useState<boolean>();
   const [datauser, setDatauser] = useState<any>();
+  const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || {};
@@ -15,7 +17,8 @@ export default function Header() {
     return (
       <div
         onMouseEnter={() => {
-          document.querySelector(".menureceitas")?.classList.add("animationmenu")}}
+          document.querySelector(".menureceitas")?.classList.add("animationmenu");
+        }}
         onMouseLeave={() => {
           document.querySelector(".menureceitas")?.classList.remove("animationmenu");
         }}
@@ -23,34 +26,55 @@ export default function Header() {
       >
         <div className="boxbtnsmenureceitas">
           <strong>Geral</strong>
-          <a href={`/receitas/${'doce'}`}>Doces</a>
-          <a href={`/receitas/${'salgado'}`}>salgados</a>
-          <a href={`/receitas/${'massas'}`}>Massas</a>
-          <a href={`/receitas/${'fitness'}`}>Fitness</a>
+          <a href={`/receitas/${"doce"}`}>Doces</a>
+          <a href={`/receitas/${"salgado"}`}>salgados</a>
+          <a href={`/receitas/${"massas"}`}>Massas</a>
+          <a href={`/receitas/${"fitness"}`}>Fitness</a>
         </div>
         <div className="boxbtnsmenureceitas">
           <strong>Carnes</strong>
-          <a href={`/receitas/${'bovino'}`}>Bovino</a>
-          <a href={`/receitas/${'aves'}`}>Aves</a>
-          <a href={`/receitas/${'peixes'}`}>Peixes</a>
+          <a href={`/receitas/${"bovino"}`}>Bovino</a>
+          <a href={`/receitas/${"aves"}`}>Aves</a>
+          <a href={`/receitas/${"peixes"}`}>Peixes</a>
         </div>
         <div className="boxbtnsmenureceitas">
           <strong>Sobremesas</strong>
-          <a href={`/receitas/${'bolos'}`}>Bolos</a>
-          <a href={`/receitas/${'tortas'}`}>Tortas</a>
+          <a href={`/receitas/${"bolos"}`}>Bolos</a>
+          <a href={`/receitas/${"tortas"}`}>Tortas</a>
         </div>
         <div className="boxbtnsmenureceitas">
           <strong>Bebidas</strong>
-          <a href={`/receitas/${'drinks'}`}>Drinks</a>
-          <a href={`/receitas/${'milkshakes'}`}>Milkshakes</a>
-          <a href={`/receitas/${'sucos'}`}>Sucos</a>
+          <a href={`/receitas/${"drinks"}`}>Drinks</a>
+          <a href={`/receitas/${"milkshakes"}`}>Milkshakes</a>
+          <a href={`/receitas/${"sucos"}`}>Sucos</a>
         </div>
       </div>
     );
   };
+
   return (
     <header className="containerHeader">
+      <MenuMobile visible={visible}></MenuMobile>
       <div className="logo-area">logo</div>
+      {window.screen.width < 500 && !visible ? (
+        <button id="btnmenumobile" onClick={() => setVisible(true)}>
+          <FiMenu size={25} color="#fff">
+            {" "}
+          </FiMenu>
+        </button>
+      ) : (
+        ""
+      )}
+      {window.screen.width < 500 && visible ? (
+        <button id="btnmenumobile" onClick={() => setVisible(false)}>
+          <FiMenu size={25} color="#fff">
+            {" "}
+          </FiMenu>
+        </button>
+      ) : (
+        ""
+      )}
+     
       <nav className="navbarbtns">
         <button type="button" onClick={() => (window.location.href = "/")}>
           Início
@@ -60,14 +84,16 @@ export default function Header() {
           onMouseEnter={() => {
             document.querySelector(".menureceitas")?.classList.add("animationmenu");
           }}
-          >
+        >
           Receitas
         </button>
         {<MenuReceita></MenuReceita>}
         <button type="button" onClick={() => (window.location.href = "/post")}>
           Postar receitas
         </button>
-        <button onClick={() => (window.location.href = "/minhas_receitas")} type="button">Minhas receitas</button>
+        <button onClick={() => (window.location.href = "/minhas_receitas")} type="button">
+          Minhas receitas
+        </button>
       </nav>
       <div className="user-area">
         {!datauser ? (

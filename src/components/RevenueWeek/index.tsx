@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import "./style.css";
 import Title from "../Titles";
 import firebase from "../../services/firebase";
+import { pageWidth } from "../../pages/Home";
 
 type PromisseRenevues = {
   title: string;
@@ -41,6 +42,7 @@ export default function RevenueWeek() {
                 color={"coral"}
                 size="25px"
                 title={item.title.toLocaleUpperCase()}
+                align={(pageWidth < 500 as any) && 'center'}
               ></Title>
               <p>Tempo de preparo: {item.tempoPreparo}</p>
               <p>Nível de dificuldade: {item.nivel}</p>

@@ -16,3 +16,17 @@
     flex-direction: column;
     gap: 5px;
 }
+
+@media(max-width:500px){
+    .containerRevenueWeek{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .box-RevenueWeek{
+        width: 100%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+}

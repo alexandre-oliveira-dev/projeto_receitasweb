@@ -1,4 +1,4 @@
-.containerHeader{
+.containerHeader {
     width: 100%;
     height: 70px;
     background-color: coral;
@@ -7,27 +7,29 @@
     justify-content: space-evenly;
 }
 
-.navbarbtns{
+.navbarbtns {
     display: flex;
     gap: 20px;
 
 }
-.navbarbtns button{
+
+.navbarbtns button {
     background-color: transparent;
     border: 0;
     color: #fff;
     font-size: 16px;
     transition: 0.3s ease;
 }
-.navbarbtns button:hover{
+
+.navbarbtns button:hover {
     text-shadow: 5px 5px 10px black;
 }
 
-.menureceitas{
+.menureceitas {
     width: 100%;
     height: 200px;
     position: absolute;
-    background-color:#fff;
+    background-color: #fff;
     margin-top: 30px;
     left: 0;
     z-index: 10;
@@ -41,33 +43,61 @@
     pointer-events: none;
     transition: 0.5s ease;
 }
-.animationmenu{
+
+.animationmenu {
     display: flex;
     opacity: 1;
     pointer-events: auto;
 
 }
-.boxbtnsmenureceitas{
+
+.boxbtnsmenureceitas {
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: flex-start;
     height: 100%;
 }
-.boxbtnsmenureceitas a{
+
+.boxbtnsmenureceitas a {
     text-decoration: none;
     color: coral;
 }
-.boxbtnsmenureceitas strong{
+
+.boxbtnsmenureceitas strong {
     color: grey;
 }
 
-.user-area{
+.user-area {
     display: flex;
     gap: 10px;
 }
-.user-area button{
+
+.user-area button {
     background-color: transparent;
     border: 0;
     color: #fff;
+}
+
+
+@media(max-width: 500px) {
+    .containerHeader{
+        position: fixed;
+        z-index: 99;
+    }
+    .navbarbtns {
+        display: none;
+    }
+
+    .user-area {
+        display: none;
+    }
+
+    #btnmenumobile{
+        background-color: transparent;
+        border: 0;
+        outline: none;
+        position: absolute;
+        right: 30px;
+    }
 }

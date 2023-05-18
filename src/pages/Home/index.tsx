@@ -7,6 +7,7 @@ import RevenuesBox from "../../components/RevenuesBox";
 import RevenueWeek from "../../components/RevenueWeek";
 import Footer from "../../components/Footer";
 
+export const pageWidth = window.screen.width
 const Homepage = () => {
   return (
     <div className="container-homepage">
@@ -16,7 +17,7 @@ const Homepage = () => {
           key={1}
           level={"400"}
           color="#fff"
-          size={"40px"}
+          size={pageWidth > 500 ?"40px" : '25px'}
           width="500px"
           shadow={true}
           title="Milhares de Receitas na palma da sua mão!"

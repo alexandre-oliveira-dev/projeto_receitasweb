@@ -43,3 +43,11 @@
 .itemreceita:hover {
     transform: scale(1.05);
 }
+
+@media(max-width:500px){
+    .boxRevenues{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+    }
+}

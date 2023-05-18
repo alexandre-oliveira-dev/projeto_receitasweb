@@ -8,7 +8,7 @@ type TitleFypes = {
     shadow?:boolean;
     width?: string,
     margin?:string,
-    align?:'start'|'center'|'left'|'right'
+    align?:'start'|'center'|'left'|'right' 
 };
 
 export default function Title({color,level,size,title,shadow,width,margin,align}:TitleFypes) {

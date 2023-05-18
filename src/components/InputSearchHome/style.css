@@ -24,8 +24,17 @@
     height: 100%;
     color: #fff;
     font-size: 18px;
-    
+
 }
-.inputSearch input::placeholder{
+
+.inputSearch input::placeholder {
     color: #fff;
+}
+
+
+@media(max-width:500px) {
+    .inputSearch {
+        width: 90%;
+        height: 40px;
+    }
 }
