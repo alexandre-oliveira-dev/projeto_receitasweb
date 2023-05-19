@@ -21,7 +21,7 @@
     scale: 1;
     transition: all 0.3s ease;
     cursor: pointer;
-    
+
 }
 
 .itemreceita img {
@@ -44,10 +44,28 @@
     transform: scale(1.05);
 }
 
-@media(max-width:500px){
+@media(max-width:500px) {
     .boxRevenues{
-        flex-wrap: nowrap;
-        flex-direction: column;
-        align-items: center;
+        padding: 0;
     }
+  .itemreceita{
+    width: 150px;
+    height: 250px;
+
+  }
+  .itemreceita h3{
+    font-size: 10px;
+  }
+  .itemreceita p{
+    font-size: 10px;
+  }
+  .itemreceita a{
+    width: 95%;
+    font-size: 10px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

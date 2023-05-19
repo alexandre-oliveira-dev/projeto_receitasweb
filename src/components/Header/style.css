@@ -78,7 +78,9 @@
     border: 0;
     color: #fff;
 }
-
+#btnmenumobile{
+    display: none;
+}
 
 @media(max-width: 500px) {
     .containerHeader{
@@ -99,5 +101,6 @@
         outline: none;
         position: absolute;
         right: 30px;
+        display: flex;
     }
 }

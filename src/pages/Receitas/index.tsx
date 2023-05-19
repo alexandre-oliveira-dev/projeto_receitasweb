@@ -38,6 +38,9 @@ export default function Receitas() {
   return (
     <div className="container-receitas">
       <Header></Header>
+      <br />
+      <br />
+      <br />
       <section className="container-section-recitas">
         {datalenght < 1 ? (
           <>
@@ -57,7 +60,7 @@ export default function Receitas() {
               title={`${datalenght} Receita(s) encontradas, buscando por: "${nomereceita}" `}
               color="coral"
               level="400"
-              size="30px"
+              size="25px"
               align="center"
               width="100%"
             ></Title>

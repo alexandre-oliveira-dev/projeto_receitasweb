@@ -17,10 +17,10 @@
 }
 
 .container-form-cadastro-login form {
-    width: 65%;
-    height: 400px;
+    width: 50%;
+    height: auto;
     background-color: #fff;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +28,7 @@
 }
 
 .inputform {
-    width: 70%;
+    width: 95%;
     height: 35px;
     border-radius: 5px;
     outline: none;
@@ -67,5 +67,17 @@
 @keyframes opacity {
     to {
         transform: rotateY(1turn);
+    }
+}
+
+@media(max-width:500px){
+    .container-form-cadastro-login form{
+        width: 95%;
+    }
+    .inputform{
+        width: 95%;
+    }
+    .finished{
+        width: 95%;
     }
 }

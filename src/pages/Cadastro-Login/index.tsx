@@ -51,13 +51,12 @@ export default function Cadastro() {
             <Title
               title="Cadastre-se e explore nossas receitas incríveis!"
               color="coral"
-              level="800"
-              size="30px"
+              level="600"
+              size="25px"
               shadow={false}
             ></Title>
             <>
-              <Title title="Cadastre-se" color="coral" level="600" size="20px"></Title>
-              <div style={{ display: "flex", width: "70%" }}>
+              <div style={{ display: "flex", width:"95%",gap:"5px" }}>
                 <input
                   onChange={(e) => setName(e.target.value)}
                   type="text"
@@ -105,14 +104,13 @@ export default function Cadastro() {
         ) : (
           <form id="form2" onSubmit={handleLogin}>
             <Title
-              title="As melhores receitas você encontra aqui!"
+              title="Entrar"
               color="coral"
-              level="800"
-              size="30px"
+              level="600"
+              size="25px"
               shadow={false}
             ></Title>
             <>
-              <Title title="Entrar" color="coral" level="600" size="20px"></Title>
               <input  onChange={(e) => setEmail(e.target.value)} type="email" name="email" className="inputform" placeholder="E-mail" />
               <input  onChange={(e) => setPassword(e.target.value)} type="password" name="password" className="inputform" placeholder="Senha" />
               <button type="submit" className="finished">

@@ -30,7 +30,7 @@ export default function Receita() {
         {data.map((item: PromisseRenevues) => {
           return (
             <div key={item?.id} className="box-info-recita">
-              <div style={{display:"flex",gap:"20px"}}>
+              <div className="style-mobile" style={{display:"flex",gap:"20px"}}>
                 <div className="box-img-receita">
                   {!image ? (
                     <img id="indexImg" src={item.banners.map((i) => i)[0]} alt=""></img>
@@ -55,13 +55,14 @@ export default function Receita() {
                     ></img>
                   </div>
                 </div>
-                  <div style={{ width: "50%" }}>
+                  <div style={window.screen.width > 500 ? { width: "50%" } : {width:"100%"}}>
                     <Title
                       title={item.title.toUpperCase()}
                       color="coral"
                       level="600"
-                      size="30px"
+                      size={window.screen.width > 500 ? `30px` : '20px'}
                       width="100%"
+                      
                     ></Title>
                     <p>Tempo de preparo: {item.tempoPreparo}</p>
                     <p>Nível de dificuldade: {item.nivel}</p>

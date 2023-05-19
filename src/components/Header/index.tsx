@@ -56,25 +56,21 @@ export default function Header() {
     <header className="containerHeader">
       <MenuMobile visible={visible}></MenuMobile>
       <div className="logo-area">logo</div>
-      {window.screen.width < 500 && !visible ? (
+
+      {!visible ? (
         <button id="btnmenumobile" onClick={() => setVisible(true)}>
           <FiMenu size={25} color="#fff">
             {" "}
           </FiMenu>
         </button>
       ) : (
-        ""
-      )}
-      {window.screen.width < 500 && visible ? (
         <button id="btnmenumobile" onClick={() => setVisible(false)}>
           <FiMenu size={25} color="#fff">
             {" "}
           </FiMenu>
         </button>
-      ) : (
-        ""
       )}
-     
+
       <nav className="navbarbtns">
         <button type="button" onClick={() => (window.location.href = "/")}>
           Início

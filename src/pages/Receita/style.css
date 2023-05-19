@@ -32,3 +32,17 @@
     width: 100px;
     cursor: pointer;
 }
+
+
+@media(max-width:500px){
+    .style-mobile{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 50px;
+    }
+    .box-img-receita{
+        width: 100%;
+        border: 0;
+    }
+}
