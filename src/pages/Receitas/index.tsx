@@ -55,7 +55,7 @@ export default function Receitas() {
             <RevenuesBox></RevenuesBox>
           </>
         ) : (
-          <>
+          <div style={{width:'100%',display:'flex',flexDirection:"column"}}>
             <Title
               title={`${datalenght} Receita(s) encontradas, buscando por: "${nomereceita}" `}
               color="coral"
@@ -64,7 +64,7 @@ export default function Receitas() {
               align="center"
               width="100%"
             ></Title>
-            <div style={{ width: "100%", display: "flex", gap: "20px", marginTop: "-5rem" }}>
+            <div style={{ width: "100%", display: "flex", gap: "20px",flexWrap:"wrap",justifyContent:"center" }}>
               {data?.map((item: PromisseRenevues, index: number) => {
                 return (
                   <div key={index} className="itemreceita">
@@ -81,7 +81,7 @@ export default function Receitas() {
                 );
               })}
             </div>
-          </>
+          </div>
         )}
       </section>
       <Footer></Footer>

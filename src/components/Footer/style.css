@@ -1,7 +1,29 @@
-.footer{
-    width: 100%;
-    min-height: 300px;
-    background-color: coral;
-    display: flex;
-    align-items: center;
+.footer {
+  width: 100%;
+  min-height: 300px;
+  background-color: coral;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box-footer-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.box-footer-btns a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.box-footer-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 20px;
 }
