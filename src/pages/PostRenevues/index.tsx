@@ -25,7 +25,7 @@ export default function PostRenevues() {
   const [tempo, setTempo] = useState<string>("");
 
   useEffect(() => {
-    const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || '';
+    const userdata = JSON.parse(localStorage.getItem("@receitasweb") as string) || "";
     setDatauser(userdata?.user);
   }, []);
 
@@ -75,7 +75,7 @@ export default function PostRenevues() {
   async function handleformrenevues(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!datauser) {
-      toast.info('Faça login para postar receitas!')
+      toast.info("Faça login para postar receitas!");
       return;
     }
     if (!title || !modo || !dataingredientes || !tipo || !categoria || !nivel) {
@@ -150,12 +150,23 @@ export default function PostRenevues() {
   return (
     <div className="container-post-renevues">
       <Header></Header>
+      {window.screen.width < 500 && (
+        <>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </>
+      )}
       <form className="container-form-post" onSubmit={(e) => handleformrenevues(e)}>
         <Title
           color="coral"
           level="600"
           size="30px"
           title="Compartilhe suas melhores receitas 😋"
+          align={"center"}
         ></Title>
 
         <div className="box-input-form">
@@ -205,8 +216,8 @@ export default function PostRenevues() {
           </select>
           <select onChange={(e) => setTipo(e.target.value)} className="inputformrenevues">
             <option style={{ fontWeight: "600" }}>Tipo</option>
-            <option value={"doce"}>doce</option>
-            <option value={"salgado"}>salgado</option>
+            <option value={"doces"}>doce</option>
+            <option value={"salgados"}>salgado</option>
           </select>
           <select onChange={(e) => setCategoria(e.target.value)} className="inputformrenevues">
             <option style={{ fontWeight: "600" }}>Categoria</option>
@@ -216,11 +227,13 @@ export default function PostRenevues() {
             <option value={"sopas"}>sopas</option>
             <option value={"fitness"}>fitness</option>
             <option value={"lanches"}>lanches</option>
+            <option value={"sobremesas"}>sobremesas</option>
+            <option value={"tradicionais"}>tradicionais</option>
           </select>
           <input
             onChange={(e) => setTempo(e.target.value)}
             className="inputformrenevues"
-            placeholder="Tempo ex: 45min/45minutos "
+            placeholder="Tempo ex: 45min/45 minutos "
           ></input>
           {dataingredientes.length > 0 &&
             dataingredientes.map((item, index) => {
@@ -256,7 +269,7 @@ export default function PostRenevues() {
             ></input>
             <div className="input-false">
               <FiUpload size={25}></FiUpload>
-              <p>Inserir fotos</p>
+              <p>Inserir fotos (max 2)</p>
             </div>
           </div>
           <div className="box-list-files">
@@ -268,7 +281,7 @@ export default function PostRenevues() {
                     background: "coral",
                     color: "#fff",
                     width: "max-content",
-                    borderRadius:"10px"
+                    borderRadius: "10px",
                   }}
                   key={index}
                 >

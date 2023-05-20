@@ -18,17 +18,20 @@ export default function Receitas() {
       const response = await firebase.firestore().collection("receitas").get();
       const lista = response.docs.map((item) => item.data());
 
-      const arrayItems = lista.filter(function (item) {
-        return item.categoria.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
-      }).concat(lista.filter(function (item) {
-        return item.title.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
-      }),
-      lista.filter(function (item) {
-        return item.tipo.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
-      })
-      )
+      const arrayItems = lista
+        .filter(function (item) {
+          return item.categoria.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
+        })
+        .concat(
+          lista.filter(function (item) {
+            return item.title.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
+          }),
+          lista.filter(function (item) {
+            return item.tipo.toLowerCase().indexOf(nomereceita.toLowerCase()) > -1;
+          })
+        );
 
-      console.log(arrayItems)
+      console.log(arrayItems);
       setData(arrayItems);
       setDatalenght(arrayItems.length);
     }
@@ -43,8 +46,14 @@ export default function Receitas() {
       <br />
       <section className="container-section-recitas">
         {datalenght < 1 ? (
-          <>
-            <Title title="Receita não encontrada! 😕" color="coral" level="600" size="30px"></Title>
+          <div
+            style={
+              window.screen.width < 500
+                ? { display: "flex", flexDirection: "column", gap: "50px" }
+                : { display: "flex", flexDirection: "column", gap: "30px" }
+            }
+          >
+            <Title title="Receita não encontrada! 😕" color="coral" level="600" size={window.screen.width < 500 ? "20px" : "30px"}></Title>
             <Title
               title="Você pode gostar:"
               color="coral"
@@ -53,18 +62,26 @@ export default function Receitas() {
               margin="0 0 -60px 0"
             ></Title>
             <RevenuesBox></RevenuesBox>
-          </>
+          </div>
         ) : (
-          <div style={{width:'100%',display:'flex',flexDirection:"column"}}>
+          <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
             <Title
               title={`${datalenght} Receita(s) encontradas, buscando por: "${nomereceita}" `}
               color="coral"
               level="400"
-              size="25px"
+              size={window.screen.width < 500 ? "18px" : "25px"}
               align="center"
               width="100%"
             ></Title>
-            <div style={{ width: "100%", display: "flex", gap: "20px",flexWrap:"wrap",justifyContent:"center" }}>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                gap: "20px",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
               {data?.map((item: PromisseRenevues, index: number) => {
                 return (
                   <div key={index} className="itemreceita">

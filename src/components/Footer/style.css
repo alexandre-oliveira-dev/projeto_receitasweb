@@ -27,3 +27,13 @@
   gap: 2rem;
   margin-bottom: 20px;
 }
+
+
+@media(max-width:500px){
+  .box-footer-content{
+    text-align: center;
+  }
+  .footer{
+    padding: 20px;
+  }
+}

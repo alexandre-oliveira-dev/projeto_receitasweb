@@ -12,5 +12,7 @@
 }
 
 @media(max-width:500px){
-    
+    .container-section-recitas{
+        padding: 0;
+      }
 }

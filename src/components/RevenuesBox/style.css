@@ -1,65 +1,64 @@
 .boxRevenues {
-    width: 100%;
-    height: auto;
-    padding: 30px 0 0 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center
+  width: 100%;
+  height: auto;
+  padding: 30px 0 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .itemreceita {
-    width: 300px;
-    max-height: 450px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: rgb(248, 248, 248);
-    padding: 1rem;
-    border-radius: 20px;
-    justify-content: space-around;
-    scale: 1;
-    transition: all 0.3s ease;
-    cursor: pointer;
-
+  width: 300px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(248, 248, 248);
+  padding: 1rem;
+  border-radius: 20px;
+  justify-content: space-around;
+  scale: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .itemreceita img {
-    width: 100%;
-    max-height: 170px;
-    object-fit: cover;
-
+  width: 100%;
+  max-height: 170px;
+  object-fit: cover;
 }
 
 .itemreceita a {
-    text-decoration: none;
-    background-color: coral;
-    padding: 10px;
-    width: max-content;
-    border-radius: 10px;
-    color: #fff;
+  text-decoration: none;
+  background-color: coral;
+  padding: 10px;
+  width: max-content;
+  border-radius: 10px;
+  color: #fff;
 }
 
 .itemreceita:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-@media(max-width:500px) {
-    .boxRevenues{
-        padding: 0;
-    }
-  .itemreceita{
-    width: 150px;
-    height: 250px;
-
+@media (max-width: 500px) {
+  .boxRevenues {
+    padding: 0 1rem 0 5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
-  .itemreceita h3{
+  .itemreceita {
+    width: 200px;
+    height: 300px;
+  }
+  .itemreceita h3 {
     font-size: 10px;
   }
-  .itemreceita p{
+  .itemreceita p {
     font-size: 10px;
   }
-  .itemreceita a{
+  .itemreceita a {
     width: 95%;
     font-size: 10px;
     height: 30px;

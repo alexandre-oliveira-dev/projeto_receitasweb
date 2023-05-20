@@ -86,9 +86,8 @@ export default function MenuMobile({ visible }: ComponentVisible) {
       <a href={`/receitas/${"massas"}`}>Massas</a>
       <br />
 
-      <div className="logo-menu-mobile-area">
-       <p>logo</p>
-      </div>
+      <div className="logo-area"><p>Receitas</p> <strong>Web</strong></div>
+
     </nav>
   );
 }

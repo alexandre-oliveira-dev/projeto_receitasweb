@@ -17,8 +17,8 @@ const Homepage = () => {
           key={1}
           level={"400"}
           color="#fff"
-          size={pageWidth > 500 ?"40px" : '25px'}
-          width="500px"
+          size={pageWidth > 500 ?"40px" : '20px'}
+          width={pageWidth > 500 ?"500px" : '100%'}
           shadow={true}
           title="Milhares de Receitas na palma da sua mão!"
           margin="200px 0 0 0"

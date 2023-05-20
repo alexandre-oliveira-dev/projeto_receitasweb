@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <header className="containerHeader">
       <MenuMobile visible={visible}></MenuMobile>
-      <div className="logo-area">logo</div>
+      <div onClick={()=>window.location.href='/'} className="logo-area"><p>Receitas</p> <strong>Web</strong></div>
 
       {!visible ? (
         <button id="btnmenumobile" onClick={() => setVisible(true)}>

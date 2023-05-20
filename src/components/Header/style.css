@@ -7,6 +7,17 @@
     justify-content: space-evenly;
 }
 
+.logo-area{
+    display: flex;
+}
+.logo-area p{
+    color:#fff
+}
+.logo-area strong{
+    color: rgb(120, 32, 0);
+    font-weight: 800;
+}
+
 .navbarbtns {
     display: flex;
     gap: 20px;

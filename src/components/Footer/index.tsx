@@ -36,11 +36,10 @@ export default function Footer() {
             );
           })}
         </div>
-        <div className="box-footer-btns">
-            <p>logo</p>
-        </div>
+        <div className="logo-area"><p>Receitas</p> <strong>Web</strong></div>
+
       </div>
-      <p>©️2023-Receitas web todos direitos reservados.</p>
+      <p style={{textAlign:"center",color:"#fff"}}>©️2023-Receitas web todos direitos reservados.</p>
     </footer>
   );
 }
